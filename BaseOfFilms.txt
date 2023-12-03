@@ -1,0 +1,8 @@
+Your's list:
+@Film id <0>  {My Genre}	(27.68 zl) Duzhe fajna komedia release: 05.06.2005 (recommended by Yuliia)
+@Game id <1>  {Shchos komedijne 34}	(287.79 zl) Nowa nazwa release: 1.10.2015 
+@Game id <2>  {Genre#186}	(40.25 zl) Film#12 release: 1.12.2015 
+@Film id <3>  {I tak}	(20.18 zl) Dali release: 1.12.2015 (recommended by Semen)
+@Film id <4>  {Genre#12}	(32.79 zl) Film#199 release: 23.09.2019 (recommended by Veronika)
+@Game id <5>  {Genre#36}	(46.34 zl) Film#161 release: 31.10.2015 
+@Film id <6>  {Genre#23}	(29.65 zl) Film#113 release: 12.12.2023 (recommended by Andrii)
