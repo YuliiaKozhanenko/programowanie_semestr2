@@ -54,10 +54,10 @@ void WishList::delAll()
         [](auto& pair)
         {
             //delete get<1>(pair);
-           get<1>(pair).reset();//видаляє об'єкти, на які вказує unique_ptr і встановлює вказівник на nullptr
+           get<1>(pair).reset();//ГўГЁГ¤Г Г«ГїВє Г®ГЎ'ВєГЄГІГЁ, Г­Г  ГїГЄВі ГўГЄГ Г§ГіВє unique_ptr Ві ГўГ±ГІГ Г­Г®ГўГ«ГѕВє ГўГЄГ Г§ВіГўГ­ГЁГЄ Г­Г  nullptr
         }
     );
-    m_products.clear(); // Очистити map
+    m_products.clear(); // ГЋГ·ГЁГ±ГІГЁГІГЁ map
 }
 
 
@@ -244,7 +244,7 @@ istream& operator>>(istream& input, WishList& list)
                             int year = stoi(matches[8].str());
                             string recommendedBy = matches[9].str();
 
-                            // Створення відповідного типу продукту з використанням отриманих даних
+                            // Г‘ГІГўГ®Г°ГҐГ­Г­Гї ГўВіГ¤ГЇГ®ГўВіГ¤Г­Г®ГЈГ® ГІГЁГЇГі ГЇГ°Г®Г¤ГіГЄГІГі Г§ ГўГЁГЄГ®Г°ГЁГ±ГІГ Г­Г­ГїГ¬ Г®ГІГ°ГЁГ¬Г Г­ГЁГµ Г¤Г Г­ГЁГµ
                             if (productType == "Film")
                             {
                                 //Film* film = new Film;
@@ -276,7 +276,7 @@ istream& operator>>(istream& input, WishList& list)
                             }
                             else
                             {
-                                // Якщо тип продукту не відповідає "Film" або "Game" - помилка
+                                // ГџГЄГ№Г® ГІГЁГЇ ГЇГ°Г®Г¤ГіГЄГІГі Г­ГҐ ГўВіГ¤ГЇГ®ГўВіГ¤Г Вє "Film" Г ГЎГ® "Game" - ГЇГ®Г¬ГЁГ«ГЄГ 
                                 cout << "Invalid product type: " << productType << endl;
                             }
                         }
@@ -320,7 +320,7 @@ void WishList::add()
     int day, month, year;
     string recommendedBy;
 
-    // Розбиття рядка на компоненти за допомогою find та substr
+    // ГђГ®Г§ГЎГЁГІГІГї Г°ГїГ¤ГЄГ  Г­Г  ГЄГ®Г¬ГЇГ®Г­ГҐГ­ГІГЁ Г§Г  Г¤Г®ГЇГ®Г¬Г®ГЈГ®Гѕ find ГІГ  substr
     int pos = input.find(';');
     try
     {
@@ -387,7 +387,7 @@ void WishList::add()
     try
     {
         year = stoi(input.substr(prev_pos, pos - prev_pos));
-        cout << input.substr(prev_pos, pos - prev_pos) << " OToTOTOапррпар" << endl;
+        cout << input.substr(prev_pos, pos - prev_pos) << " OToTOTOГ ГЇГ°Г°ГЇГ Г°" << endl;
     }
     catch (invalid_argument)
     {
@@ -402,7 +402,7 @@ void WishList::add()
         recommendedBy = input.substr(prev_pos);
     }
 
-    // Перевірка допустимості введених даних
+    // ГЏГҐГ°ГҐГўВіГ°ГЄГ  Г¤Г®ГЇГіГ±ГІГЁГ¬Г®Г±ГІВі ГўГўГҐГ¤ГҐГ­ГЁГµ Г¤Г Г­ГЁГµ
         if (index < 0 || index > m_size)
         {
             cout << "Invalid input for index. Try again." << endl;
@@ -421,7 +421,7 @@ void WishList::add()
             return;
         }
 
-        // Створення об'єкта Film або Game зі зчитаними даними
+        // Г‘ГІГўГ®Г°ГҐГ­Г­Гї Г®ГЎ'ВєГЄГІГ  Film Г ГЎГ® Game Г§Ві Г§Г·ГЁГІГ Г­ГЁГ¬ГЁ Г¤Г Г­ГЁГ¬ГЁ
         if (choice == 2)
         {
             /*Film* newFilm = new Film(name, price, genre, index, day, month, year, recommendedBy);
@@ -462,21 +462,21 @@ void WishList::delOne()
         return;
     }
 
-    // Видалити вибраний продукт
+    // Г‚ГЁГ¤Г Г«ГЁГІГЁ ГўГЁГЎГ°Г Г­ГЁГ© ГЇГ°Г®Г¤ГіГЄГІ
     auto it = m_products.find(index);
     if (it != m_products.end())
     {
-        //delete get<1>(*it);//it->secound видалення об'єкту
-        m_products.erase(it);//видалення пари ключ-продукт
+        //delete get<1>(*it);//it->secound ГўГЁГ¤Г Г«ГҐГ­Г­Гї Г®ГЎ'ВєГЄГІГі
+        m_products.erase(it);//ГўГЁГ¤Г Г«ГҐГ­Г­Гї ГЇГ Г°ГЁ ГЄГ«ГѕГ·-ГЇГ°Г®Г¤ГіГЄГІ
     }
-    // Видалення усіх продуктів після індексу і зберігання їх у тимчасовий контейнер
+    // Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї ГіГ±ВіГµ ГЇГ°Г®Г¤ГіГЄГІВіГў ГЇВіГ±Г«Гї ВіГ­Г¤ГҐГЄГ±Гі Ві Г§ГЎГҐГ°ВіГЈГ Г­Г­Гї ВїГµ Гі ГІГЁГ¬Г·Г Г±Г®ГўГЁГ© ГЄГ®Г­ГІГҐГ©Г­ГҐГ°
     vector<int> elementsToDelete;
     for (auto it = m_products.begin(); it != m_products.end(); ++it)
     {
         if (get<0>(*it) > index)
         {
             elementsToDelete.push_back(get<0>(*it));
-            get<1>(*it)->setId(get<1>(*it)->getId() - 1);//зменшуємо id на 1, бо після видалення одного продукту вони зміщаються
+            get<1>(*it)->setId(get<1>(*it)->getId() - 1);//Г§Г¬ГҐГ­ГёГіВєГ¬Г® id Г­Г  1, ГЎГ® ГЇВіГ±Г«Гї ГўГЁГ¤Г Г«ГҐГ­Г­Гї Г®Г¤Г­Г®ГЈГ® ГЇГ°Г®Г¤ГіГЄГІГі ГўГ®Г­ГЁ Г§Г¬ВіГ№Г ГѕГІГјГ±Гї
         }
     }
 
@@ -484,15 +484,15 @@ void WishList::delOne()
     map<int, unique_ptr<Product>> temp;
     for (int element : elementsToDelete)
     {
-        //temp.insert(make_pair(element - 1, m_products[element]));//додаємо продукти до тимчасового мапу зі зміненими ключами
+        //temp.insert(make_pair(element - 1, m_products[element]));//Г¤Г®Г¤Г ВєГ¬Г® ГЇГ°Г®Г¤ГіГЄГІГЁ Г¤Г® ГІГЁГ¬Г·Г Г±Г®ГўГ®ГЈГ® Г¬Г ГЇГі Г§Ві Г§Г¬ВіГ­ГҐГ­ГЁГ¬ГЁ ГЄГ«ГѕГ·Г Г¬ГЁ
         temp.insert(make_pair(element - 1, move(m_products[element])));
-        m_products.erase(element);//видаляємо елементи з неактуальними ключами
+        m_products.erase(element);//ГўГЁГ¤Г Г«ГїВєГ¬Г® ГҐГ«ГҐГ¬ГҐГ­ГІГЁ Г§ Г­ГҐГ ГЄГІГіГ Г«ГјГ­ГЁГ¬ГЁ ГЄГ«ГѕГ·Г Г¬ГЁ
     }
 
     elementsToDelete.clear();
 
    // m_products.insert(temp.begin(), temp.end());
-    m_products.insert(make_move_iterator(temp.begin()), make_move_iterator(temp.end()));//додаємо елементи з актуальними ключами
+    m_products.insert(make_move_iterator(temp.begin()), make_move_iterator(temp.end()));//Г¤Г®Г¤Г ВєГ¬Г® ГҐГ«ГҐГ¬ГҐГ­ГІГЁ Г§ Г ГЄГІГіГ Г«ГјГ­ГЁГ¬ГЁ ГЄГ«ГѕГ·Г Г¬ГЁ
     temp.clear();
 
     m_size = m_size - 1;
@@ -526,7 +526,7 @@ void WishList::edit()
 
     cout << "Edit the product details: " << endl;
     string text = "Write like that - name of genre; name of product; price; day.month.year";
-    if (dynamic_cast<Film*>(m_products[index].get()))//або m_products[index]->productType()=="Film";
+    if (dynamic_cast<Film*>(m_products[index].get()))//Г ГЎГ® m_products[index]->productType()=="Film";
     {
         text += "; who recommended";
     }
@@ -534,13 +534,13 @@ void WishList::edit()
     string input;
     getline(cin, input);
 
-    // Зчитування даних з рядка
+    // Г‡Г·ГЁГІГіГўГ Г­Г­Гї Г¤Г Г­ГЁГµ Г§ Г°ГїГ¤ГЄГ 
     string genre, name;
     double price;
     int day, month, year;
     string recommendedBy;
 
-    // Розбиття рядка на компоненти за допомогою find та substr
+    // ГђГ®Г§ГЎГЁГІГІГї Г°ГїГ¤ГЄГ  Г­Г  ГЄГ®Г¬ГЇГ®Г­ГҐГ­ГІГЁ Г§Г  Г¤Г®ГЇГ®Г¬Г®ГЈГ®Гѕ find ГІГ  substr
 
     int pos = input.find(';');
     genre = input.substr(0, pos);
@@ -601,7 +601,7 @@ void WishList::edit()
     try
     {
         year = stoi(input.substr(prev_pos, pos - prev_pos));
-        cout << input.substr(prev_pos, pos - prev_pos) << " OToTOTOапррпар" << endl;
+        cout << input.substr(prev_pos, pos - prev_pos) << " OToTOTOГ ГЇГ°Г°ГЇГ Г°" << endl;
     }
     catch (invalid_argument)
     {
@@ -632,53 +632,6 @@ void WishList::edit()
     cout << "Product details updated successfully." << endl;
 }
 
-//void WishList::sortByPrice(vector<Product*>& productsVector)
-//{
-//    for_each(
-//        m_products.begin(),
-//        m_products.end(),
-//        [&productsVector](auto& pair)
-//        {
-//            productsVector.push_back(get<1>(pair).get());
-//        }
-//    );
-//
-//    auto getPrice = mem_fn(&Product::getPrice);//створення функтора getPrice 
-//    //(може приймати об'єкт типу Product і викликати на ньому метод getPrice, повертаючи результат цього виклику)
-//
-//    int direction;
-//    cout << "1. Low to high" << endl;
-//    cout << "0. High to low" << endl;
-//    cout << "Enter sorting direction: ";
-//    cin >> direction;
-//
-//    if (direction == 1)
-//    {
-//        sort(
-//            productsVector.begin(),
-//            productsVector.end(),
-//            [&](Product* a, Product* b)
-//            {//створюємо об'єкт класу less, зв'язуємо функцію getPrice з аргументом. bind(getPrice, a) повертає функтор, який при виклику без аргументів повертає getPrice(a)
-//                return bind(less<>(), bind(getPrice, a), bind(getPrice, b))();//bind повертає функтор, тому ми пишемо (), щоби викликати його
-//            }
-//        );
-//    }
-//    else if (direction == 0)
-//    {
-//        sort(
-//             productsVector.begin(),
-//             productsVector.end(),
-//             [](Product* a, Product* b)
-//             {
-//                return a->getPrice() > b->getPrice();
-//             }
-//        );
-//    }
-//    else
-//    {
-//        cout << "Invalid input";
-//    }
-//}
 void WishList::sortByPrice(vector<shared_ptr<Product>>& productsVector)
 {
     for_each(
@@ -691,8 +644,8 @@ void WishList::sortByPrice(vector<shared_ptr<Product>>& productsVector)
         }
     );
 
-    auto getPrice = mem_fn(&Product::getPrice);//створення функтора getPrice (obiekt funkcyjny)
-    //(може приймати об'єкт типу Product і викликати на ньому метод getPrice, повертаючи результат цього виклику)
+    auto getPrice = mem_fn(&Product::getPrice);//Г±ГІГўГ®Г°ГҐГ­Г­Гї ГґГіГ­ГЄГІГ®Г°Г  getPrice (obiekt funkcyjny)
+    //(Г¬Г®Г¦ГҐ ГЇГ°ГЁГ©Г¬Г ГІГЁ Г®ГЎ'ВєГЄГІ ГІГЁГЇГі Product Ві ГўГЁГЄГ«ГЁГЄГ ГІГЁ Г­Г  Г­ГјГ®Г¬Гі Г¬ГҐГІГ®Г¤ getPrice, ГЇГ®ГўГҐГ°ГІГ ГѕГ·ГЁ Г°ГҐГ§ГіГ«ГјГІГ ГІ Г¶ГјГ®ГЈГ® ГўГЁГЄГ«ГЁГЄГі)
 
     int direction;
     cout << "1. Low to high" << endl;
@@ -731,10 +684,10 @@ void WishList::sortByPrice(vector<shared_ptr<Product>>& productsVector)
 string normalize(const string& str)
 {
     string result;
-    // Записує          стрінг      до нового стрінгу result повністю з малої букви
-    transform(str.begin(), str.end(), back_inserter(result), ::tolower);//back_inserter прауює як push_back(), адаптер ітератора
-    // Видалення пробілів: remove переміщує усі пробіли на кінець та повертає ітератор на перший пробіл,
-    //erase видаляє усі пробіли від першого і до кінця
+    // Г‡Г ГЇГЁГ±ГіВє          Г±ГІГ°ВіГ­ГЈ      Г¤Г® Г­Г®ГўГ®ГЈГ® Г±ГІГ°ВіГ­ГЈГі result ГЇГ®ГўГ­ВіГ±ГІГѕ Г§ Г¬Г Г«Г®Вї ГЎГіГЄГўГЁ
+    transform(str.begin(), str.end(), back_inserter(result), ::tolower);//back_inserter ГЇГ°Г ГіГѕВє ГїГЄ push_back(), Г Г¤Г ГЇГІГҐГ° ВіГІГҐГ°Г ГІГ®Г°Г 
+    // Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї ГЇГ°Г®ГЎВіГ«ВіГў: remove ГЇГҐГ°ГҐГ¬ВіГ№ГіВє ГіГ±Ві ГЇГ°Г®ГЎВіГ«ГЁ Г­Г  ГЄВіГ­ГҐГ¶Гј ГІГ  ГЇГ®ГўГҐГ°ГІГ Вє ВіГІГҐГ°Г ГІГ®Г° Г­Г  ГЇГҐГ°ГёГЁГ© ГЇГ°Г®ГЎВіГ«,
+    //erase ГўГЁГ¤Г Г«ГїВє ГіГ±Ві ГЇГ°Г®ГЎВіГ«ГЁ ГўВіГ¤ ГЇГҐГ°ГёГ®ГЈГ® Ві Г¤Г® ГЄВіГ­Г¶Гї
     result.erase(remove(result.begin(), result.end(), ' '), result.end());
     return result;
 }
